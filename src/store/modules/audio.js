@@ -10,7 +10,7 @@ const state = () => ({
     paused: true,
     currentTime: '-:--',
     duration: '-:--',
-    songTitle: tr.t('playingBar.songTitleNotPlaying'),
+    songTitle: tr.global.t('playingBar.songTitleNotPlaying'),
     songArtist: '',
     currentSong: null,
     currentSongIndex: null,

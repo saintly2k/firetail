@@ -1,20 +1,25 @@
-import Vue from 'vue'
+import { createApp, ref } from 'vue'
 import VueApp from './App.vue'
 import store from './store'
 import router from './router'
 import i18n from './translation'
-import AsyncComputed from 'vue-async-computed'
+import * as AsyncComputed from 'vue3-async-computed'
 import { ipcRenderer } from 'electron'
-export const contextMenuBus = new Vue()
-export const bus = new Vue()
-new Vue({
-    i18n,
-    router,
-    store,
-    render: h => h(VueApp)
-}).$mount('#app')
+export const contextMenuBus = createApp()
+export const bus = createApp()
+import VirtualList from 'vue-virtual-scroll-list'
+const asyncComputed = AsyncComputed.createPlugin({ ref: ref });
+asyncComputed
 
-Vue.use(AsyncComputed)
+const app = createApp(VueApp)
+
+app.use(store)
+app.use(router)
+app.use(i18n)
+app.component('virtual-list', VirtualList)
+//app.use(asyncComputed)
+
+app.mount('#app')
 
 router.replace({ path: '/', query: { name: i18n.t('sidebar.songs'), view: 'all' } })
 

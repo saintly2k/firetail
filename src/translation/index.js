@@ -1,8 +1,5 @@
-import Vue from 'vue'
-import VueI18n from 'vue-i18n'
+import { createI18n } from 'vue-i18n'
 import {ipcRenderer} from 'electron'
-
-Vue.use(VueI18n)
 
 let loadLocaleMessages = () => {
     const locales = require.context('./locales', true, /[A-Za-z0-9-_,\s]+\.json$/i)
@@ -28,7 +25,7 @@ let getLocale = async () => {
 }
 getLocale()
 
-let i18n = new VueI18n({
+let i18n = createI18n({
     locale: navigator.language.split('-')[0],
     fallbackLocale: 'en',
     messages: loadLocaleMessages()

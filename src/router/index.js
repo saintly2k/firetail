@@ -1,20 +1,16 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router'
 import SongList from './components/SongList'
 //import SimpleSongList from './components/SimpleSongList/SimpleSongList'
-import Unknown from './components/Unknown'
+//import Unknown from './components/Unknown'
 import ArtistAlbumView from './components/ArtistAlbumView'
 import store from '../store'
 import tr from '../translation'
 import Settings from './components/settings/Settings'
-import VirtualList from 'vue-virtual-scroll-list'
 import sort from '../modules/sort'
 import { ipcRenderer } from 'electron'
 //import { bus } from '../main'
 
-Vue.component('virtual-list', VirtualList)
-
-class VueRouterEx extends VueRouter {
+/* class VueRouterEx extends VueRouter {
     constructor(options) {
         super(options)
         this.matcher
@@ -30,9 +26,10 @@ class VueRouterEx extends VueRouter {
     }
 }
 
-Vue.use(VueRouterEx)
+Vue.use(VueRouterEx) */
 
-const router = new VueRouterEx({
+const router = createRouter({
+    history: createWebHashHistory(),
     routes: [
         {
             path: '/',
@@ -42,7 +39,7 @@ const router = new VueRouterEx({
         {
             path: '/artists',
             component: ArtistAlbumView,
-            name: tr.t('router.artists'),
+            name: tr.global.t('router.artists'),
             children: [
                 {
                     path: '',
@@ -53,7 +50,7 @@ const router = new VueRouterEx({
         {
             path: '/albums',
             component: ArtistAlbumView,
-            name: tr.t('router.albums'),
+            name: tr.global.t('router.albums'),
             children: [
                 {
                     path: '',
@@ -69,13 +66,13 @@ const router = new VueRouterEx({
         {
             path: '/settings',
             component: Settings,
-            name: tr.t('settings.title')
+            name: tr.global.t('settings.title')
         },
-        {
+        /* {
             path: '*',
             component: Unknown,
             name: 'Unknown'
-        }
+        } */
     ]
 })
 

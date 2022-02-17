@@ -6,52 +6,52 @@ import store from '..'
 const state = () => ({
     navs: [{
         icon: 'home',
-        name: tr.t('sidebar.home'),
+        name: tr.global.t('sidebar.home'),
         id: 'homeTab',
         type: 'large_button',
         link: '/home'
     },
     {
         icon: 'settings',
-        name: tr.t('sidebar.settings'),
+        name: tr.global.t('sidebar.settings'),
         id: 'settingsTab',
         type: 'large_button',
         link: '/settings'
     },
     {
-        name: tr.t('sidebar.library'),
+        name: tr.global.t('sidebar.library'),
         type: 'subtitle'
     },
     {
         icon: 'favourite',
-        name: tr.t('sidebar.favourite'),
+        name: tr.global.t('sidebar.favourite'),
         id: 'likedTab',
         type: 'large_button',
         link: '/liked'
     },
     {
         icon: 'music-note',
-        name: tr.t('sidebar.songs'),
+        name: tr.global.t('sidebar.songs'),
         id: 'songsTab',
         type: 'large_button',
-        link: `/?name=${encodeURIComponent(tr.t('sidebar.songs'))}&view=all`
+        link: `/?name=${encodeURIComponent(tr.global.t('sidebar.songs'))}&view=all`
     },
     {
         icon: 'artist',
-        name: tr.t('sidebar.artists'),
+        name: tr.global.t('sidebar.artists'),
         id: 'artistsTab',
         type: 'large_button',
         link: '/artists?hideTop=true&view=firetailnoselect'
     },
     {
         icon: 'album',
-        name: tr.t('sidebar.albums'),
+        name: tr.global.t('sidebar.albums'),
         id: 'albumsTab',
         type: 'large_button',
         link: '/albums?hideTop=true&view=firetailnoselect'
     },
     {
-        name: tr.t('sidebar.playlists'),
+        name: tr.global.t('sidebar.playlists'),
         type: 'subtitle'
     },
     {
@@ -69,7 +69,7 @@ const state = () => ({
     }
     ],
     screenTitle: '',
-    screenCountType: tr.tc('topTitle.countTypeSongs', 0),
+    screenCountType: tr.global.tc('topTitle.countTypeSongs', 0),
     screenCountNum: 0,
     showScreenTop: true,
     artists: [],

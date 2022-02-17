@@ -15,7 +15,7 @@
             <div class="pl-info">
                 <div class="input">
                     <label class="input-label">Name</label>
-                    <input type="text" v-model="name" placeholder="My Playlist" value="My Playlist" @focus="focused" @blur="unfocused">
+                    <input type="text" v-model="name" placeholder="My Playlist" @focus="focused" @blur="unfocused">
                 </div>
                 <div class="input">
                     <label class="input-label">Description</label>
@@ -23,8 +23,8 @@
                 </div>
             </div>
             <div class="buttons">
-                <Button @click.native="close" :button="{ label: 'Cancel' }" />
-                <Button @click.native="createOrEdit" :button="{ label: saveBtn }" />
+                <Button @click="close" :button="{ label: 'Cancel' }" />
+                <Button @click="createOrEdit" :button="{ label: saveBtn, style: 'primary' }" />
             </div>
         </div>
     </div>

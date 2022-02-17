@@ -141,6 +141,7 @@ export default {
         }
     },
     async mounted() {
+        console.log('mounting????')
         require('./scss/test.scss')
         if (window.localStorage.getItem('lastPlayed')) {
             this.$store.dispatch('audio/resumeState')

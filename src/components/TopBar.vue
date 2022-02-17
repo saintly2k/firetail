@@ -30,7 +30,7 @@ export default {
     data() {
         return {
             button: [
-                {name: tr.t('topBar.addSongs'), id: 'addFiles', for: 'addFiles', icon: 'add'},
+                {name: tr.global.t('topBar.addSongs'), id: 'addFiles', for: 'addFiles', icon: 'add'},
             ],
             nav: [
                 {type: 'back', class: 'littlebitback', nav: -1, icon: 'arrow_back_ios'},
